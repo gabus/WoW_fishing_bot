@@ -48,7 +48,7 @@ class Fish:
                 logger.error("Fishing float was not found. Restarting...")
                 continue
 
-            logger.info("4. Fishing float location found. Starting Fishing")
+            logger.info("4. Fishing float location found. Start fishing...")
 
             # Get position where fishing float has been found (from top left corner)
             x = list(zip(*loc[::-1]))[0][0]
@@ -80,9 +80,10 @@ class Fish:
             average.append(mean)
 
             if i == Config.FISHING_LOOP - 1:
-                logger.error("Nothing has been caught :(")
+                logger.error("Nothing has been caught. Restarting...")
 
-    def click_mouse_at_loc(self, x, y):
+    @staticmethod
+    def click_mouse_at_loc(x, y):
         pyautogui.moveTo(x, y, duration=0.3)
         pyautogui.mouseDown()
         time.sleep(0.2)

@@ -1,7 +1,10 @@
 ## World of Warcraft Fishing Bot
+
 Frame comparison based fishing bot for World of Warcraft. Success rate ~80%
 
+
 ## Setup
+
 ### Create python3 virtual environment 
 ```
 python3 -m venv venv
@@ -12,7 +15,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### install dependencies
+### Install dependencies
 ```
 pipenv install
 ```
@@ -21,6 +24,7 @@ pipenv install
 ```
 python fishing_bot.py
 ```
+
 
 ## Info
 
