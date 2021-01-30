@@ -11,14 +11,20 @@ from PIL import ImageGrab
 class Fish:
 
     catches = 0
+    start_time = time.time()
 
     def main_loop(self):
         template = cv2.imread('fishing_float.png', 0)
         w, h = template.shape[::-1]
 
         for it in range(Config.LOOP_COUNT):
-            logger.debug("------------------- Success rate: " + str(round(self.catches * 100 / (it + 1))) + "% -----------------------")
-            logger.debug("----------------- Fishing iteration: " + str(it) + " ---------------------")
+            fishing_time, catches_per_10min, success_rate = self.fetch_stats(it)
+            logger.success('----------------------------------------------------------------------------')
+            logger.success('   Fishing iteration: ' + '{0}/{1}'.format(it + 1, Config.LOOP_COUNT) + '    Fishing time: ' + fishing_time + '    Catches: ' + str(self.catches))
+            logger.success('')
+            logger.success('          Catch rate: ' + str(catches_per_10min) + '/10min              Success rate: ' + str(success_rate) + '%')
+            logger.success('----------------------------------------------------------------------------')
+
             pyautogui.moveTo(Config.get_cursor_rest_place_x(), Config.get_cursor_rest_place_y(), duration=1)
 
             logger.info("1. Start fishing")
@@ -88,6 +94,14 @@ class Fish:
         pyautogui.mouseDown()
         time.sleep(0.2)
         pyautogui.mouseUp()
+
+    def fetch_stats(self, it):
+        fishing_time = time.strftime("%H:%M:%S", time.gmtime(time.time() - self.start_time))
+        catches_per_10min = self.catches * 600 / (time.time() - self.start_time)
+        catches_per_10min = round(catches_per_10min * 100) / 100
+        success_rate = 0 if it == 0 else round(self.catches * 100 / it)
+
+        return fishing_time, catches_per_10min, success_rate
 
 
 # MONEEEEEYZ

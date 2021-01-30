@@ -33,9 +33,12 @@ returns to original position. This happens when it dips down
 
 Image capture is at `(x-1400, y-200)` square from left top corner. Check `base_screenshot.png` to see where exactly bot is fishing 
 
+![Capture screen example](base_screenshot_example.png)
+
 * **Move player camera so fishing floater appears inside image capture square!**
 * **Put fishing skill in action bar under button `1`**
 * Obviously, don't move camera while fishing
+* Don't move your mouse while fishing
 
 
 ## Troubleshooting
