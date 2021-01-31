@@ -18,12 +18,7 @@ class Fish:
         w, h = template.shape[::-1]
 
         for it in range(Config.LOOP_COUNT):
-            fishing_time, catches_per_10min, success_rate = self.fetch_stats(it)
-            logger.success('----------------------------------------------------------------------------')
-            logger.success('   Fishing iteration: ' + '{0}/{1}'.format(it + 1, Config.LOOP_COUNT) + '    Fishing time: ' + fishing_time + '    Catches: ' + str(self.catches))
-            logger.success('')
-            logger.success('          Catch rate: ' + str(catches_per_10min) + '/10min              Success rate: ' + str(success_rate) + '%')
-            logger.success('----------------------------------------------------------------------------')
+            self.display_stats(it)
 
             pyautogui.moveTo(Config.get_cursor_rest_place_x(), Config.get_cursor_rest_place_y(), duration=1)
 
@@ -102,6 +97,15 @@ class Fish:
         success_rate = 0 if it == 0 else round(self.catches * 100 / it)
 
         return fishing_time, catches_per_10min, success_rate
+
+    def display_stats(self, it):
+        fishing_time, catches_per_10min, success_rate = self.fetch_stats(it)
+
+        logger.success('----------------------------------------------------------------------------')
+        logger.success('   Fishing iteration: {0}/{1}    Fishing time: {2}    Catches: {3}'.format(it + 1, Config.LOOP_COUNT, fishing_time, self.catches))
+        logger.success('                                                                            ')
+        logger.success('          Catch rate: {0}/10min              Success rate: {1}%'.format(catches_per_10min, success_rate))
+        logger.success('----------------------------------------------------------------------------')
 
 
 # MONEEEEEYZ
