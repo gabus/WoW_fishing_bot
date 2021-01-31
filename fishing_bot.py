@@ -12,6 +12,7 @@ class Fish:
 
     catches = 0
     start_time = time.time()
+    failures = 0
 
     def main_loop(self):
         template = cv2.imread('fishing_float.png', 0)
@@ -47,7 +48,14 @@ class Fish:
 
             if not list(zip(*loc[::-1])):
                 logger.error("Fishing float was not found. Restarting...")
+
+                self.failures += 1
+                if self.failures >= Config.MAX_FAILURES:
+                    logger.error("------ Bot terminated due too failures ------")
+                    break
                 continue
+
+            self.failures = 0
 
             logger.info("4. Fishing float location found. Start fishing...")
 

@@ -19,6 +19,10 @@ class Config:
     # Check `diff` in logs for troubleshooting
     CATCH_THRESHOLD = 4
 
+    # How many failures in a row will stop the script
+    # This might happen if server restarts or you've been kicked
+    MAX_FAILURES = 5
+
     # Cursor rest place (must not obstruct fishing float)
     # Coordinates from Top Left corner
     # Randomness is for more human like feeling. LOL
