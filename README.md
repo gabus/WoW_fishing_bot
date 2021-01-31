@@ -1,6 +1,8 @@
 ## World of Warcraft Fishing Bot
 
-Frame comparison based fishing bot for World of Warcraft. Success rate ~80%
+Frame comparison based fishing bot for World of Warcraft. Success rate ~90% (on calm waters)
+
+![Capture screen example](images/bot_stats_demo.png)
 
 
 ## Setup
@@ -33,7 +35,7 @@ returns to original position. This happens when it dips down
 
 Image capture is at `(x-1400, y-200)` square from left top corner. Check `base_screenshot.png` to see where exactly bot is fishing 
 
-![Capture screen example](base_screenshot_example.png)
+![Capture screen example](images/base_screenshot_example.png)
 
 * **Move player camera so fishing floater appears inside image capture square!**
 * **Put fishing skill in action bar under button `1`**
