@@ -17,7 +17,7 @@ class Config:
 
     # Threshold between frames which defies if there's fish. Lower - more sensitive
     # Check `diff` in logs for troubleshooting
-    CATCH_THRESHOLD = 4
+    CATCH_THRESHOLD = 5
 
     # How many failures in a row will stop the script
     # This might happen if server restarts or you've been kicked

@@ -130,3 +130,5 @@ dmypy.json
 
 base_screenshot.png
 Pipfile.lock
+
+.idea
