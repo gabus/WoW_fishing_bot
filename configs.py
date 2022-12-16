@@ -3,7 +3,7 @@ import random
 
 class Config:
     # Main loop
-    LOOP_COUNT = 3000
+    LOOP_COUNT = 3001
 
     # Fishing loop. Change this value if WoW fishing ends earlier or later than fishing loop
     FISHING_LOOP = 50
